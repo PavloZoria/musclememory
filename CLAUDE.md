@@ -26,6 +26,7 @@ Two levels: **the IDE whose habits are kept**, then **the editor the plugin runs
 | Plugin | Language / build | Test and package |
 |---|---|---|
 | `intellij/vscode/` | TypeScript, npm, `@vscode/vsce` | `npm test`; `npm run package` (lint, tests, `.vsix` into `dist/`) |
+| `intellij/xcode/` | Swift package, `make` | `make test`; `make package` (lint, tests, check against the installed Xcode, `.zip` into `dist/`) |
 
 Add a row when a plugin is added.
 

@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08A8A29DBD8DB66B25763F65 /* NavigationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7E4FF1F683A9243DB4E42 /* NavigationHistory.swift */; };
+		0B2E4CA9DE26CB11CEE79071 /* NavigationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA71D492F061E1BBF09DF54C /* NavigationRecorder.swift */; };
+		0B388BA7D6D35511E47432D2 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FA0486CED6A5ECDAB5386 /* SourceEditorExtension.swift */; };
+		18004F66CFAA7A46ED386154 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF72605CA1E4BADCA94AAE8 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E3589596C39C7DE2C2D1254 /* MuscleMemoryEditorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FCD0A82C171731F18273B1F4 /* MuscleMemoryEditorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		49C6BCE105D42A202A568CE5 /* TextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76955279B04185AEB7099B16 /* TextDocument.swift */; };
+		899FD0C8A78C0F6B6852DDB1 /* NavigationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B7E4FF1F683A9243DB4E42 /* NavigationHistory.swift */; };
+		9C2F33A67895CBCC019C40F2 /* SelectionExpander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D62B3E5A433B22E3612D2 /* SelectionExpander.swift */; };
+		A74FD3132B2A840005BA0D3D /* EditingCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EF95F7BDD2189136A1582D /* EditingCommands.swift */; };
+		CCDB224027123B986F5EC78F /* MuscleMemoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B9C5C8AF6DD9D9094A182A /* MuscleMemoryApp.swift */; };
+		E42C95B12911BDE9F392A6BE /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF72605CA1E4BADCA94AAE8 /* XcodeKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A1AC9EB9780EBEF1145A229 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CA20E3AA66017CB4AD95781 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4B4FF7A7AE4A2CE6CB7D493;
+			remoteInfo = MuscleMemoryEditorExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		666F30862F7FC201CE53C915 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18004F66CFAA7A46ED386154 /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C246E0052E44259CCE739770 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1E3589596C39C7DE2C2D1254 /* MuscleMemoryEditorExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		075D62B3E5A433B22E3612D2 /* SelectionExpander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionExpander.swift; sourceTree = "<group>"; };
+		28EF95F7BDD2189136A1582D /* EditingCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCommands.swift; sourceTree = "<group>"; };
+		527ACDD25E462720F150FA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		76955279B04185AEB7099B16 /* TextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocument.swift; sourceTree = "<group>"; };
+		81A6EDC6635E97DC0AAB739C /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		87B7E4FF1F683A9243DB4E42 /* NavigationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHistory.swift; sourceTree = "<group>"; };
+		904CDB465A51056721EB1401 /* EditorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EditorExtension.entitlements; sourceTree = "<group>"; };
+		9C9FA0486CED6A5ECDAB5386 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		9DF72605CA1E4BADCA94AAE8 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = "$(DEVELOPER_FRAMEWORKS_DIR)/XcodeKit.framework"; sourceTree = "<group>"; };
+		A6C0DE82D1BEFA33ADE75DC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DDF818D4C7162B711333859C /* MuscleMemoryEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuscleMemoryEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA71D492F061E1BBF09DF54C /* NavigationRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRecorder.swift; sourceTree = "<group>"; };
+		F9B9C5C8AF6DD9D9094A182A /* MuscleMemoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleMemoryApp.swift; sourceTree = "<group>"; };
+		FCD0A82C171731F18273B1F4 /* MuscleMemoryEditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MuscleMemoryEditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33D0601E89708BD7DF6A47E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E42C95B12911BDE9F392A6BE /* XcodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1EDB19DF0BD5A3F9E0D25E79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDF818D4C7162B711333859C /* MuscleMemoryEditor.app */,
+				FCD0A82C171731F18273B1F4 /* MuscleMemoryEditorExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		203EBCAD2EF59F9E9A6A9CAD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3CC619B8C1934EE5CB30F749 /* MuscleMemoryEditing */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3CC619B8C1934EE5CB30F749 /* MuscleMemoryEditing */ = {
+			isa = PBXGroup;
+			children = (
+				28EF95F7BDD2189136A1582D /* EditingCommands.swift */,
+				87B7E4FF1F683A9243DB4E42 /* NavigationHistory.swift */,
+				075D62B3E5A433B22E3612D2 /* SelectionExpander.swift */,
+				76955279B04185AEB7099B16 /* TextDocument.swift */,
+			);
+			path = MuscleMemoryEditing;
+			sourceTree = "<group>";
+		};
+		47844BE7F7963BA43AD09AF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DF72605CA1E4BADCA94AAE8 /* XcodeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		528700122E4AFE458C4E2657 /* EditorExtension */ = {
+			isa = PBXGroup;
+			children = (
+				904CDB465A51056721EB1401 /* EditorExtension.entitlements */,
+				527ACDD25E462720F150FA01 /* Info.plist */,
+				9C9FA0486CED6A5ECDAB5386 /* SourceEditorExtension.swift */,
+			);
+			path = EditorExtension;
+			sourceTree = "<group>";
+		};
+		6988357F1B6517BE1DD9631C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				81A6EDC6635E97DC0AAB739C /* App.entitlements */,
+				A6C0DE82D1BEFA33ADE75DC4 /* Info.plist */,
+				F9B9C5C8AF6DD9D9094A182A /* MuscleMemoryApp.swift */,
+				EA71D492F061E1BBF09DF54C /* NavigationRecorder.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		96B35B31855B1335A8A14390 /* xcode */ = {
+			isa = PBXGroup;
+			children = (
+				203EBCAD2EF59F9E9A6A9CAD /* Sources */,
+			);
+			name = xcode;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A2593774142C48320401D47D = {
+			isa = PBXGroup;
+			children = (
+				6988357F1B6517BE1DD9631C /* App */,
+				528700122E4AFE458C4E2657 /* EditorExtension */,
+				96B35B31855B1335A8A14390 /* xcode */,
+				47844BE7F7963BA43AD09AF9 /* Frameworks */,
+				1EDB19DF0BD5A3F9E0D25E79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0BD5930CEEE57A69B403DC36 /* MuscleMemoryEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C07938BC1CECE66B1557F9EE /* Build configuration list for PBXNativeTarget "MuscleMemoryEditor" */;
+			buildPhases = (
+				C726A09DA2B039BD0677B75B /* Sources */,
+				C246E0052E44259CCE739770 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A112630C20BB35C8C0D60C78 /* PBXTargetDependency */,
+			);
+			name = MuscleMemoryEditor;
+			packageProductDependencies = (
+			);
+			productName = MuscleMemoryEditor;
+			productReference = DDF818D4C7162B711333859C /* MuscleMemoryEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C4B4FF7A7AE4A2CE6CB7D493 /* MuscleMemoryEditorExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C1E583C20BF6A161ED25355 /* Build configuration list for PBXNativeTarget "MuscleMemoryEditorExtension" */;
+			buildPhases = (
+				37D52C8BF61B0C9B7B95C34F /* Sources */,
+				33D0601E89708BD7DF6A47E7 /* Frameworks */,
+				666F30862F7FC201CE53C915 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MuscleMemoryEditorExtension;
+			packageProductDependencies = (
+			);
+			productName = MuscleMemoryEditorExtension;
+			productReference = FCD0A82C171731F18273B1F4 /* MuscleMemoryEditorExtension.appex */;
+			productType = "com.apple.product-type.xcode-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CA20E3AA66017CB4AD95781 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0BD5930CEEE57A69B403DC36 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					C4B4FF7A7AE4A2CE6CB7D493 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 19CAAABAFFB71435A504F6DA /* Build configuration list for PBXProject "MuscleMemoryEditor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A2593774142C48320401D47D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0BD5930CEEE57A69B403DC36 /* MuscleMemoryEditor */,
+				C4B4FF7A7AE4A2CE6CB7D493 /* MuscleMemoryEditorExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37D52C8BF61B0C9B7B95C34F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A74FD3132B2A840005BA0D3D /* EditingCommands.swift in Sources */,
+				899FD0C8A78C0F6B6852DDB1 /* NavigationHistory.swift in Sources */,
+				9C2F33A67895CBCC019C40F2 /* SelectionExpander.swift in Sources */,
+				0B388BA7D6D35511E47432D2 /* SourceEditorExtension.swift in Sources */,
+				49C6BCE105D42A202A568CE5 /* TextDocument.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C726A09DA2B039BD0677B75B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCDB224027123B986F5EC78F /* MuscleMemoryApp.swift in Sources */,
+				08A8A29DBD8DB66B25763F65 /* NavigationHistory.swift in Sources */,
+				0B2E4CA9DE26CB11CEE79071 /* NavigationRecorder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A112630C20BB35C8C0D60C78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4B4FF7A7AE4A2CE6CB7D493 /* MuscleMemoryEditorExtension */;
+			targetProxy = 9A1AC9EB9780EBEF1145A229 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2CB697C413AE243C6814C547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EditorExtension/EditorExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EditorExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.musclememory.editing.extension;
+				PRODUCT_MODULE_NAME = MuscleMemoryEditorExtension;
+				PRODUCT_NAME = MuscleMemoryEditorExtension;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		41D306F6BA3B95E10B846ADD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EditorExtension/EditorExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EditorExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.musclememory.editing.extension;
+				PRODUCT_MODULE_NAME = MuscleMemoryEditorExtension;
+				PRODUCT_NAME = MuscleMemoryEditorExtension;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5E7EC40F8B28CF3B488163AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.musclememory.editing;
+				PRODUCT_MODULE_NAME = MuscleMemoryApp;
+				PRODUCT_NAME = "Muscle Memory";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7AA208323CF01FA366E9D314 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C799B02A0EC875AC5FB91691 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F6B0CEA4C90030BBA85C5746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.musclememory.editing;
+				PRODUCT_MODULE_NAME = MuscleMemoryApp;
+				PRODUCT_NAME = "Muscle Memory";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19CAAABAFFB71435A504F6DA /* Build configuration list for PBXProject "MuscleMemoryEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA208323CF01FA366E9D314 /* Debug */,
+				C799B02A0EC875AC5FB91691 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9C1E583C20BF6A161ED25355 /* Build configuration list for PBXNativeTarget "MuscleMemoryEditorExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41D306F6BA3B95E10B846ADD /* Debug */,
+				2CB697C413AE243C6814C547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C07938BC1CECE66B1557F9EE /* Build configuration list for PBXNativeTarget "MuscleMemoryEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6B0CEA4C90030BBA85C5746 /* Debug */,
+				5E7EC40F8B28CF3B488163AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CA20E3AA66017CB4AD95781 /* Project object */;
+}

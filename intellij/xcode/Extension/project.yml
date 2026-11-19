@@ -1,0 +1,111 @@
+# XcodeGen spec for the Muscle Memory editor extension. `make extension-project` regenerates
+# MuscleMemoryEditor.xcodeproj from it; the generated project is committed so building needs only Xcode.
+name: MuscleMemoryEditor
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    MARKETING_VERSION: "0.0.1"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    # Built unsigned-for-distribution ("Sign to Run Locally"); `make extension` then signs it with your
+    # Apple Development certificate, because Xcode only loads extensions signed by an Apple-issued one.
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: YES
+    DEAD_CODE_STRIPPING: YES
+targets:
+  MuscleMemoryEditor:
+    type: application
+    platform: macOS
+    sources:
+      - App
+      - ../Sources/MuscleMemoryEditing/NavigationHistory.swift
+    settings:
+      PRODUCT_NAME: Muscle Memory
+      PRODUCT_MODULE_NAME: MuscleMemoryApp
+      PRODUCT_BUNDLE_IDENTIFIER: dev.musclememory.editing
+      GENERATE_INFOPLIST_FILE: NO
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Muscle Memory
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSApplicationCategoryType: public.app-category.developer-tools
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        # Runs in the menu bar, without a Dock icon.
+        LSUIElement: true
+        NSHumanReadableCopyright: ""
+    entitlements:
+      path: App/App.entitlements
+      properties:
+        # Not sandboxed: the Back / Forward history reads Xcode's caret through the Accessibility API,
+        # which sandboxed apps can't use. The editor extension stays sandboxed, as Xcode requires.
+        com.apple.security.app-sandbox: false
+    dependencies:
+      - target: MuscleMemoryEditorExtension
+        embed: true
+  MuscleMemoryEditorExtension:
+    type: xcode-extension
+    platform: macOS
+    sources:
+      - EditorExtension
+      - ../Sources/MuscleMemoryEditing
+    settings:
+      PRODUCT_NAME: MuscleMemoryEditorExtension
+      PRODUCT_MODULE_NAME: MuscleMemoryEditorExtension
+      PRODUCT_BUNDLE_IDENTIFIER: dev.musclememory.editing.extension
+      GENERATE_INFOPLIST_FILE: NO
+      FRAMEWORK_SEARCH_PATHS: $(DEVELOPER_FRAMEWORKS_DIR)
+      LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+    info:
+      path: EditorExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Muscle Memory
+        CFBundleName: Muscle Memory
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.dt.Xcode.extension.source-editor
+          NSExtensionAttributes:
+            XCSourceEditorExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SourceEditorExtension
+            # Keep in sync with EditingCommand (Sources/MuscleMemoryEditing); a test checks it.
+            XCSourceEditorCommandDefinitions:
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.ExtendSelection
+                XCSourceEditorCommandName: Extend Selection
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.ShrinkSelection
+                XCSourceEditorCommandName: Shrink Selection
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.NextMethod
+                XCSourceEditorCommandName: Next Method
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.PreviousMethod
+                XCSourceEditorCommandName: Previous Method
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.ToggleCase
+                XCSourceEditorCommandName: Toggle Case
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.StartNewLine
+                XCSourceEditorCommandName: Start New Line
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.StartNewLineBefore
+                XCSourceEditorCommandName: Start New Line Before Current
+              - XCSourceEditorCommandClassName: $(PRODUCT_MODULE_NAME).EditorCommand
+                XCSourceEditorCommandIdentifier: dev.musclememory.editing.extension.BlockComment
+                XCSourceEditorCommandName: Comment with Block Comment
+    entitlements:
+      path: EditorExtension/EditorExtension.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+    dependencies:
+      # Xcode only loads extensions that carry XcodeKit inside their own bundle.
+      - framework: $(DEVELOPER_FRAMEWORKS_DIR)/XcodeKit.framework
+        embed: true
+        codeSign: true

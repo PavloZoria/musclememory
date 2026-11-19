@@ -18,6 +18,7 @@ If either is missing, report that and stop.
 Work inside the plugin folder. Pick the steps by the **editor** folder name (the second path segment):
 
 - `vscode`: run `npm ci` if `node_modules/` is missing, then `npm run package` (lint, tests, then `vsce package` into `dist/`). The artifact is `dist/<package.json name>-<version>.vsix`.
+- `xcode`: run `make package` (lint, tests, a check of the keymap against the Xcode selected with `xcode-select`, then the zip). The artifact is `dist/musclememory-xcode-<version>.zip`.
 - `intellij`: run `./gradlew buildPlugin`. The artifact is the newest `build/distributions/*.zip`.
 - Any other editor: report "no build recipe for <editor>; add one to .claude/skills/release/SKILL.md and this agent" and stop.
 
@@ -31,9 +32,11 @@ Every check must pass. List each one with PASS or FAIL.
 2. **Version**: the manifest and the artifact both say the expected version.
    - `vscode`: `package.json` `version`; inside the `.vsix`, `extension.vsixmanifest` `<Identity … Version=…>` and `extension/package.json` `version`.
    - `intellij`: `gradle.properties` `pluginVersion`; inside the `.zip`, the plugin jar's `META-INF/plugin.xml` `<version>`.
+   - `xcode`: `VERSION`; inside the `.zip`, the top folder is `musclememory-xcode-<version>/` and its `CHANGELOG.md` has a `## <version>` section.
 3. **Contents are complete**: every file the manifest points at is inside the package.
    - `vscode`: `main`, each `contributes.themes[].path`, each icon referenced in `package.json`, `readme.md`, `changelog.md`.
-4. **No unwanted files**: list the package contents (`unzip -l`) and fail on any of: `.env*`, `*.pem`, `*.key`, `*.p12`, `*.pfx`, `id_rsa*`, `secrets*.json`, `.npmrc`, `.git/`, `src/test/` or compiled tests (`out/test/`), `node_modules/` in a `.vsix` (it is packaged without dependencies), `.DS_Store`.
+   - `xcode`: `install.sh` and `uninstall.sh` (executable), `README.md`, `CHANGELOG.md`, `KeyBindings/Muscle Memory.idekeybindings`, `Muscle Memory Dark.xccolortheme` and `Muscle Memory Light.xccolortheme` in both `FontAndColorThemes/SF Mono/` and `FontAndColorThemes/JetBrains Mono/`, and one `.codesnippet` per snippet in `Sources/MuscleMemoryXcode/Snippets.swift`. Every `.idekeybindings`, `.xccolortheme` and `.codesnippet` file passes `plutil -lint`.
+4. **No unwanted files**: list the package contents (`unzip -l`) and fail on any of: `.env*`, `*.pem`, `*.key`, `*.p12`, `*.pfx`, `id_rsa*`, `secrets*.json`, `.npmrc`, `.git/`, `src/test/` or compiled tests (`out/test/`), `node_modules/` in a `.vsix` (it is packaged without dependencies), `.build/` or `Sources/` in an Xcode `.zip`, `.DS_Store`.
 5. **No secrets in the contents**: unzip into a temporary directory outside the repository and search the text files for:
    `-----BEGIN [A-Z ]*PRIVATE KEY-----`, `ghp_[A-Za-z0-9]{36}`, `github_pat_[A-Za-z0-9_]{20,}`, `gh[ousr]_[A-Za-z0-9]{36}`, `xox[abpr]-[A-Za-z0-9-]+`, `AKIA[0-9A-Z]{16}`, `AIza[0-9A-Za-z_-]{35}`, `sk-[A-Za-z0-9_-]{20,}`, `"(password|passwd|secret|token|api[_-]?key)"\s*:\s*"[^"]{8,}"`, e-mail addresses.
    Report each hit as `path:line` with the matched pattern name only, never the matched text. E-mail hits are informational (a `publisher` or `author` field may be intended); everything else is a FAIL.
