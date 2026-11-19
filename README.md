@@ -11,18 +11,20 @@ Two levels: **the IDE whose habits you keep**, then **the editor the plugin runs
 ```
 musclememory/
 ├── intellij/          habits from IntelliJ IDEA…
-│   └── vscode/        …in VS Code (a VS Code extension)
+│   ├── vscode/        …in VS Code (a VS Code extension)
+│   └── xcode/         …in Xcode (key bindings, themes and snippets)
 └── vscode/            habits from VS Code… (planned)
     └── intellij/      …in IntelliJ IDEA (an IntelliJ plugin)
 ```
 
-So `intellij/vscode/` makes VS Code feel like IntelliJ IDEA, and `vscode/intellij/` would make IntelliJ IDEA feel like VS Code. Each plugin folder is a self-contained project with its own README, build and version, written in whatever its host editor needs (TypeScript for VS Code, Kotlin for IntelliJ, and so on).
+So `intellij/vscode/` makes VS Code feel like IntelliJ IDEA, and `vscode/intellij/` would make IntelliJ IDEA feel like VS Code. Each plugin folder is a self-contained project with its own README, build and version, written in whatever its host editor needs (TypeScript for VS Code, Swift for Xcode, Kotlin for IntelliJ, and so on).
 
 ## Plugins
 
 | Habits from | Used in | Folder | Status | What you get |
 |---|---|---|---|---|
 | IntelliJ IDEA | VS Code | [`intellij/vscode/`](intellij/vscode/) | 0.0.1 | Dark and light themes, C#/Kotlin/Python styling, keymap for macOS, Windows and Linux, inheritance markers, Switcher, Push preview |
+| IntelliJ IDEA | Xcode | [`intellij/xcode/`](intellij/xcode/) | Unreleased | macOS keymap, dark and light themes, `sout`/`fori`-style live templates, optional editor commands (Extend Selection, Next Method, Toggle Case) and in-file Back / Forward |
 | VS Code | IntelliJ IDEA | `vscode/intellij/` | Planned | |
 
 ## IntelliJ IDEA habits in VS Code
@@ -84,9 +86,20 @@ The keymap is active as soon as the extension is installed, and it replaces seve
 
 The styling and markers ask the language server for outlines, hovers and type hierarchies. To keep that out of the way of completions and diagnostics, at most 4 of these requests run at once, only code on screen is looked up, answers are cached per file version, and work for an outdated version is cancelled as you type. Timings and errors are logged under **Output → Muscle Memory**.
 
+## IntelliJ IDEA habits in Xcode
+
+Xcode doesn't load plugins that change its interface, so the Xcode plugin is made of what Xcode lets you add: a key binding set, color themes, code snippets and an optional Source Editor Extension.
+
+- **Keymap**: IntelliJ IDEA's macOS keys on Xcode's commands, such as Cmd+B (Jump to Definition), Cmd+Option+Left / Right (Back / Forward), Ctrl+Tab (previous tab), Cmd+E (Recent Files), Shift+F6 (Rename), Alt+Cmd+L (Format File), Cmd+Backspace (Delete Line), Cmd+K / Shift+Cmd+K / Cmd+T (Commit / Push / Pull), Ctrl+R (Run), F8 / F7 / Shift+F8 (Step Over / Into / Out). The Xcode keys this displaces, such as Cmd+B for Build, move or are cleared so no key does two things.
+- **Themes**: Muscle Memory Dark and Muscle Memory Light with IntelliJ IDEA's colors, in JetBrains Mono when it is installed.
+- **Live templates**: `sout`, `soutv`, `fori`, `iter`, `ifn` and `inn` for Swift.
+- **Editor commands** (optional, built from source with a free Apple ID): Extend/Shrink Selection, Next/Previous Method, Toggle Case, Start New Line and Block Comment, under Editor → Muscle Memory with IntelliJ IDEA's keys. The same app keeps an IntelliJ-style Back / Forward history, so Cmd+Option+Left returns to earlier places in the same file too.
+
+Install: download `musclememory-xcode-<version>.zip` from the newest `intellij-xcode-v…` release, quit Xcode, unzip it and run `install.sh`. The [Xcode plugin's README](intellij/xcode/README.md) has every shortcut, what Xcode can't do, and how to uninstall.
+
 ## Build from source
 
-You need Node.js.
+**VS Code extension**, with Node.js:
 
 ```sh
 cd intellij/vscode
@@ -96,6 +109,15 @@ npm run package      # lint, test, then build dist/musclememory-<version>.vsix
 ```
 
 `npm run watch` recompiles on change. Source layout and the full feature docs are in [`intellij/vscode/README.md`](intellij/vscode/README.md).
+
+**Xcode plugin**, with Xcode:
+
+```sh
+cd intellij/xcode
+make test            # unit tests, including a check against the installed Xcode
+make package         # lint, test, check, then dist/musclememory-xcode-<version>.zip
+make install         # or install straight from the source folder
+```
 
 ## Adding a plugin
 

@@ -5,5 +5,6 @@ Plugins that bring IntelliJ IDEA's keymap, colors and navigation tools to other 
 | Editor | Folder | Status |
 |---|---|---|
 | VS Code | [`vscode/`](vscode/) | 0.0.1 |
+| Xcode | [`xcode/`](xcode/) | Unreleased |
 
 See the [repository README](../README.md) for how the folders are organized.
