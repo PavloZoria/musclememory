@@ -1,0 +1,8 @@
+src/**
+out/test/**
+**/*.map
+node_modules/**
+dist/**
+.gitignore
+tsconfig.json
+eslint.config.mjs
