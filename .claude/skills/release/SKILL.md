@@ -28,6 +28,7 @@ How each kind of plugin is versioned, built and installed. Pick the row by the *
 | Editor folder | Manifest (version lives here) | Set version | Build (run inside the plugin folder) | Artifact | Install steps for the release notes |
 |---|---|---|---|---|---|
 | `vscode` | `package.json` (+ `package-lock.json`) | `npm version <x.y.z> --no-git-tag-version` | `npm ci` when `node_modules/` is missing, then `npm run package` (lint, tests, package) | `dist/<name>-<x.y.z>.vsix` | Command Palette → **Extensions: Install from VSIX…** → pick the file, or `code --install-extension <file>` |
+| `xcode` | `VERSION` | `printf '%s\n' <x.y.z> > VERSION` | `make package` (lint, tests, check against the installed Xcode, package) | `dist/musclememory-xcode-<x.y.z>.zip` | Quit Xcode, unzip the file and run `musclememory-xcode-<x.y.z>/install.sh` (`uninstall.sh` next to it removes it again) |
 | `intellij` (planned, confirm against the plugin's build when it exists) | `gradle.properties` → `pluginVersion` | edit `pluginVersion` | `./gradlew buildPlugin` (runs tests via `check` if configured) | `build/distributions/<name>-<x.y.z>.zip` | Settings → Plugins → ⚙ → **Install Plugin from Disk…** → pick the file |
 
 ## Steps
@@ -60,7 +61,7 @@ Run from the repository root (`git rev-parse --show-toplevel`):
 
 ### 4. Bump the version
 
-Use the "Set version" command from the host table. Check that every place holding the version agrees (for `vscode`: `package.json` and both `version` fields at the top of `package-lock.json`).
+Use the "Set version" command from the host table. Check that every place holding the version agrees (for `vscode`: `package.json` and both `version` fields at the top of `package-lock.json`; for `xcode`: `VERSION` is the only one).
 
 ### 5. Update the README status rows
 
